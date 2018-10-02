@@ -1,0 +1,10 @@
+{
+  "public": {
+    "gcm": {
+      "senderId": "<your sender ID goes here>"
+    }
+  },
+  "gcm": {
+    "key": "<your GCM authorization key>"
+  }
+}

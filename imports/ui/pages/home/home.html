@@ -1,0 +1,45 @@
+<template name="home">
+    <!-- home -->
+    <div class="home row">
+      {{#if isCordova}}
+      <div class="col-xl-3 col-sm-6 mb-3">
+        {{>registration registrationId=registrationId}}
+      </div>
+      {{#each msg in messages}}
+      <div class="col-xl-3 col-sm-6 mb-3">
+        {{>message message=msg idx=@index}}
+      </div>
+      {{/each}}
+      {{#if error}}
+      <div class="col-xl-3 col-sm-6 mb-3">
+        {{>error}}
+      </div>
+      {{/if}}
+      {{else}}
+      <div class="col-xl-12 col-sm-12 mb-3">
+        {{>sender senderId=senderId onDataChange=senderChangedJson}}
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>registration id</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each reg in registrations}}
+          <tr>
+            <td>{{@index}}</td>
+            <td>{{reg.registrationId}}</td>
+            <td><a class="copy_link" href="#send={{reg.registrationId}}">copy</a></td>
+            <td><a class="send_link" href="#send={{reg.registrationId}}">send</a></td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      {{/if}}
+    </div>
+    <!-- home -->
+</template>

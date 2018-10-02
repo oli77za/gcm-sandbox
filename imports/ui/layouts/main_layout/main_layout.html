@@ -1,0 +1,10 @@
+<template name="main_layout">
+  <!-- main_layout -->
+  {{>navbar}}
+  <main role="main" class="container">
+  <div class="wrapper">
+    {{>Template.dynamic template=content data=data}}
+  </div>
+  </main>
+  <!-- main_layout -->
+</template>
